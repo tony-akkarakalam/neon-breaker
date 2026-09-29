@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+>
+
+<title>Neon Breaker</title>
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+
+<!-- Background -->
+<canvas id="backgroundCanvas"></canvas>
+
+<!-- Main Game Canvas -->
+<canvas id="gameCanvas"></canvas>
+
+<!-- HUD -->
+<div id="hud">
+
+    <div class="hud-card">
+        <span class="hud-label">SCORE</span>
+        <span id="score">000000</span>
+    </div>
+
+    <div class="hud-card">
+        <span class="hud-label">BEST</span>
+        <span id="best">000000</span>
+    </div>
+
+    <div class="hud-card">
+        <span class="hud-label">LEVEL</span>
+        <span id="level">01</span>
+    </div>
+
+    <div class="hud-card">
+        <span class="hud-label">LIVES</span>
+        <span id="lives">03</span>
+    </div>
+
+    <div class="hud-card mode-card">
+        <span class="hud-label">MODE</span>
+        <span id="difficulty">—</span>
+    </div>
+
+</div>
+
+
+<!-- Start Screen -->
+<section id="startScreen" class="screen">
+
+    <div class="ambient-orb orb-one"></div>
+    <div class="ambient-orb orb-two"></div>
+    <div class="ambient-orb orb-three"></div>
+
+    <div class="start-panel">
+
+        <div class="eyebrow">
+            ARCADE // SYSTEM 06
+        </div>
+
+        <h1>
+            NEON
+            <span>BREAKER</span>
+        </h1>
+
+        <p class="subtitle">
+            Break the grid. Survive the neon.
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="section-label">
+            SELECT DIFFICULTY
+        </div>
+
+        <div class="difficulty-grid">
+
+            <button class="difficulty-item" data-difficulty="1">
+                <span class="difficulty-number">01</span>
+                <span class="difficulty-name">EASY</span>
+                <span class="difficulty-description">
+                    CALM // ENTRY
+                </span>
+                <span class="difficulty-key">1</span>
+            </button>
+
+            <button class="difficulty-item" data-difficulty="2">
+                <span class="difficulty-number">02</span>
+                <span class="difficulty-name">MEDIUM</span>
+                <span class="difficulty-description">
+                    BALANCED // CORE
+                </span>
+                <span class="difficulty-key">2</span>
+            </button>
+
+            <button class="difficulty-item" data-difficulty="3">
+                <span class="difficulty-number">03</span>
+                <span class="difficulty-name">HARD</span>
+                <span class="difficulty-description">
+                    FAST // INTENSE
+                </span>
+                <span class="difficulty-key">3</span>
+            </button>
+
+            <button class="difficulty-item" data-difficulty="4">
+                <span class="difficulty-number">04</span>
+                <span class="difficulty-name">INSANE</span>
+                <span class="difficulty-description">
+                    EXTREME // NO MERCY
+                </span>
+                <span class="difficulty-key">4</span>
+            </button>
+
+        </div>
+
+        <div class="controls-panel">
+
+            <div class="control">
+                <div class="control-key">A</div>
+                <span>MOVE LEFT</span>
+            </div>
+
+            <div class="control">
+                <div class="control-key">D</div>
+                <span>MOVE RIGHT</span>
+            </div>
+
+            <div class="control">
+                <div class="control-key wide">SPACE</div>
+                <span>LAUNCH</span>
+            </div>
+
+        </div>
+
+        <div class="keyboard-note">
+            KEYBOARD ONLY
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Countdown -->
+<section id="countdownScreen" class="overlay-screen hidden">
+
+    <div class="countdown-label">
+        INITIALIZING SYSTEM
+    </div>
+
+    <div id="countdownNumber">
+        3
+    </div>
+
+    <div class="countdown-line"></div>
+
+</section>
+
+
+<!-- Level Complete -->
+<section id="levelCompleteScreen" class="overlay-screen hidden">
+
+    <div class="result-panel">
+
+        <div class="result-label">
+            GRID CLEARED
+        </div>
+
+        <h2>
+            LEVEL <span id="completedLevel">01</span>
+        </h2>
+
+        <p>
+            Prepare for the next wave.
+        </p>
+
+        <div class="result-hint">
+            PRESS <strong>SPACE</strong> TO CONTINUE
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Game Over -->
+<section id="gameOverScreen" class="overlay-screen hidden">
+
+    <div class="result-panel game-over-panel">
+
+        <div class="result-label">
+            SYSTEM FAILURE
+        </div>
+
+        <h2>
+            GAME <span>OVER</span>
+        </h2>
+
+        <div class="final-score">
+            <span>FINAL SCORE</span>
+            <strong id="finalScore">000000</strong>
+        </div>
+
+        <div class="final-best">
+            <span>BEST SCORE</span>
+            <strong id="finalBest">000000</strong>
+        </div>
+
+        <div class="result-hint">
+            PRESS <strong>SPACE</strong> TO RESTART
+        </div>
+
+        <div class="menu-hint">
+            PRESS <strong>ESC</strong> FOR MENU
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Bottom Status -->
+<div class="bottom-status">
+    <span>NEON BREAKER</span>
+    <span class="status-dot"></span>
+    <span>SYSTEM ONLINE</span>
+</div>
+
+
+<script src="game.js"></script>
+
+
+</body>
+</html>
